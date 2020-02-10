@@ -1,0 +1,28 @@
+nop	
+irmovw $0x00f3, %ax	#R[0]=0x00f3
+irmovw $0xffee, %cx	#R[1]=0xffee
+irmovw $0x000f, %dx	#R[2]=0x000f
+rrmovw %cx, %bx		#R[3]=R[1]
+nop
+addw %dx, %bx		#R[3]=R[1]+R[3]
+subw %dx, %ax		#R[0]=R[0]-R[2]
+andw %dx, %cx		#R[1]=R[1]&R[2]
+xorw %ax, %dx		#R[2]=R[2]^R[0]
+nop
+irmovw $0x0002, %cx	#R[1]=0x0002
+irmovw $0x00f3, %dx	#R[2]=0x00f3
+rmmovw %dx, $0x0000(%cx)	#M[$0x0000+R[1]]=R[2]
+irmovw $0x0000, %dx	#R[2]=0x0000
+mrmovw $0x0000(%cx), %dx	#M[R[2]]=R[0x0000+R[1]]
+nop
+xorw %bx, %bx	#R[3]=R[3]^R[3]
+irmovw $0x0001, %cx	#R[1]=0x0001
+irmovw $0x0004, %dx	#R[2]=0x0004
+jmp 0x0041		#jump to address 0x0041
+addw %cx, %bx		#R[3]=R[3]+R[1]
+rmmovw %bx, %0x0000(%bx)	#M[$0x0000+R[3]]=R[3]
+rrmovw %bx, %ax		#R[0]=R[3]
+subw %dx, %ax		#R[0]=R[0]-R[2]
+jle 0x003b		#jump if less or equal to address 0x003b
+nop
+halt

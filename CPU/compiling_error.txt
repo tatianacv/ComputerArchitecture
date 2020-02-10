@@ -1,0 +1,17 @@
+Undefined symbols for architecture x86_64:
+  "Rectangle::print()", referenced from:
+      _main in rectangleOOPclient-495829.o
+  "Rectangle::getArea()", referenced from:
+      _main in rectangleOOPclient-495829.o
+  "Rectangle::getPeri()", referenced from:
+      _main in rectangleOOPclient-495829.o
+  "Rectangle::setAncho(double)", referenced from:
+      _main in rectangleOOPclient-495829.o
+  "Rectangle::setLargo(double)", referenced from:
+      _main in rectangleOOPclient-495829.o
+  "Rectangle::Rectangle()", referenced from:
+      _main in rectangleOOPclient-495829.o
+  "Rectangle::~Rectangle()", referenced from:
+      _main in rectangleOOPclient-495829.o
+ld: symbol(s) not found for architecture x86_64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
